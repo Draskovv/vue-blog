@@ -2,8 +2,8 @@
   <div id="details">
       <div class="detailsPost">
         <div>
-          <p>{{this.postTitle}}</p>
           <img :src="this.postImgUrl">
+          <h2>{{this.postTitle}}</h2>
         </div>
         <div>
           <p>{{this.postContent}}</p>
@@ -35,21 +35,26 @@ export default {
 
 <style>
 #details{
-    display: flex;
-    justify-content: center;
-    padding-top:10em ;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px , 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    margin: 0 auto;
+    max-width: 95%;
+    padding: 1em;
+    justify-items: center;
+    padding-top: 5em;
 }
 
 .detailsPost{
     width: 60%;
-    
     border: 1px solid black;
    border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+    text-align: center;
 }
 img{
-  width: 400px;
-  height: 400px;
+  width: 70%;
+  height: 50%;
 }
 </style>
