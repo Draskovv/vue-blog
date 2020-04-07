@@ -5,6 +5,7 @@ import Home from '@/components/Home.vue';
 import SignIn from '@/components/auth/SignIn.vue';
 import SignUp from '@/components/auth/SignUp.vue';
 import CreatePost from '@/components/CreatePost.vue';
+import Details from '@/components/PostDetails.vue';
 import NotFound from '@/components/shared/NotFound.vue';
 
 
@@ -39,6 +40,12 @@ const routes = [
     }, 
     {
         path: '/create-post', component: CreatePost,beforeEnter: anonymousGuard2
+    },
+    {
+        path: '/details',
+        name: 'details',
+        component: Details,
+        props: true,
     },
     {
         path: '*', component: NotFound
