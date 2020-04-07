@@ -2,13 +2,13 @@
   <div id="home">
       <div v-if="isAuth">
         Hello to the Page (authenticated)
-        <p v-for="p in posts" :key="p.postId">
-          {{p.title}}
-        </p>
       </div>
       <div v-else>
         Hello to the Page (not authenticated)
       </div>
+       <p v-for="p in posts" :key="p.postId">
+          {{p.title}}
+        </p>
   </div>
 </template>
 

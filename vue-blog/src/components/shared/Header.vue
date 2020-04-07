@@ -1,11 +1,14 @@
 <template>
   <nav>
     <div>
-      <img src="https://banner2.cleanpng.com/20180718/cbh/kisspng-vue-js-javascript-library-angularjs-react-vue-js-5b4ebe1bc45884.1915769815318871318042.jpg"/>
+      <img src="https://lh3.googleusercontent.com/proxy/tzvh-d4GJT3qW4kEvndWUe-RYwwnZ78JJ712Nw0M-LxmqAUhazJ8L5uJ9o0nqMTHZJzxzA_8-neDz5JKiupE7iduF4CulpSuVKNt90mbBsmPnxiyBbY"/>
     </div>
     <ul>
       <li>
         <router-link to="/">Home</router-link>
+      </li>
+      <li v-if="isAuth">
+        <router-link to="/create-post">Create Post</router-link>
       </li>
       <li v-if="!isAuth">
         <router-link to="/sign-in">Login</router-link>
@@ -70,10 +73,16 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-   text-decoration: underline;
+   background-color: lightgray;
 }
 
 .logout {
     cursor: pointer;
+}
+
+img{
+  padding-left: 3em ;
+  width: 70px;
+  height: 70px;
 }
 </style>
