@@ -8,6 +8,7 @@
         <div>
           <p>{{this.postContent}}</p>
         </div>
+        <p>posted by {{this.author}} &bull; {{this.published}}</p>
       </div>
   </div>
 </template>
@@ -21,7 +22,9 @@ export default {
     postId: String,
     postTitle: String,
     postImgUrl: String,
-    postContent: String
+    postContent: String,
+    author: String,
+    published: String
 
   },
   data: function() {

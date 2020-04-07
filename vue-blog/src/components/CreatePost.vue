@@ -25,6 +25,7 @@
 
 <script>
 import postsMixin from '@/mixins/posts-mixin';
+
 export default {
     props: {
         isAuth: Boolean
@@ -35,7 +36,9 @@ export default {
         title: null,
         content: null,
         imgUrl: null,
-        published: new Date() 
+        published: new Date(),
+        author: localStorage.getItem('username')
+
     };
     },
     name: 'CreatePost',

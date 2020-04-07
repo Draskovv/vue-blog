@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div>
-      <img src="https://lh3.googleusercontent.com/proxy/tzvh-d4GJT3qW4kEvndWUe-RYwwnZ78JJ712Nw0M-LxmqAUhazJ8L5uJ9o0nqMTHZJzxzA_8-neDz5JKiupE7iduF4CulpSuVKNt90mbBsmPnxiyBbY"/>
+      <img src=""/>
     </div>
     <ul>
       <li>

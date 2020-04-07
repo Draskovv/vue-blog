@@ -58,11 +58,12 @@ export default {
           payload
         )
         .then(res => {
-          const { idToken, localId } = res.data;
+          const { idToken, localId, email} = res.data;
 
           localStorage.setItem("token", idToken);
           localStorage.setItem("userId", localId);
-
+          localStorage.setItem('username', email);
+          
           this.$router.push("/");
         })
         .catch(err => {
