@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div>
-      <img src=""/>
+      <h1>VueJS Blog</h1>
     </div>
     <ul>
       <li>
@@ -34,6 +34,7 @@ export default {
     onLogout() {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
+      localStorage.removeItem('username');
 
       this.$emit('onAuth', false);
     }
@@ -56,10 +57,12 @@ ul {
   overflow: hidden;
   background-color: white;
 }
-
+h1{
+  padding-left: 5em;
+}
 ul{
   font-size: 24px;
-  padding-right: 10em;
+  padding-right: 7em;
 }
 
 

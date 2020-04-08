@@ -1,6 +1,6 @@
 <template>
   <div id="details">
-      <div class="detailsPost">
+      <div class="detailsPost" v-if="!editing">
         <div>
           <img :src="this.postImgUrl">
           <h2>{{this.postTitle}}</h2>
@@ -9,8 +9,34 @@
           <p>{{this.postContent}}</p>
         </div>
         <p>posted by {{this.author}} &bull; {{this.published}}</p>
+        
+        <div v-if="authorOn">
+          <button @click="editing = true">Edit</button>
+        </div>
       </div>
+      <form @submit.prevent="UpdatePost($data)" v-if="editing">
+      <fieldset id="editPost">
+        <h1>Update Post</h1>
+        <p class="field1">
+          <label for="title">Title:</label>
+          <input v-model="postTitle" type="text" name="title" id="title" placeholder="Title" />
+        </p>
+        <p class="field1">
+          <label for="imgUrl">Image url:</label>
+          <input v-model="postImgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" />
+        </p>
+        <p class="field1">
+          <label for="content">Content:</label>
+          <textarea v-model="postContent" type="text" name="content" id="content" placeholder="Content"></textarea>
+        </p>
+        <p class="createPost">
+          <button @click="editing = false">Back</button>
+          <button>Update Post</button>
+        </p>
+      </fieldset>
+    </form>
   </div>
+  
 </template>
 
 <script>
@@ -29,6 +55,8 @@ export default {
   },
   data: function() {
     return {
+      authorOn: localStorage.getItem('username') == this.author,
+      editing: false
     }
   },
   name: 'PostDetails',
