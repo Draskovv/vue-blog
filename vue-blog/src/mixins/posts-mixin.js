@@ -38,7 +38,7 @@ export default {
             try{
                 if (this.checkForm())
                 {
-                    postsRef.push({title: this.title, content: this.content, imgUrl: this.imgUrl, published: new Date(), author: this.author});
+                    postsRef.push({title: this.title, content: this.content, imgUrl: this.imgUrl, published: this.published, author: this.author});
                     this.$router.push("/");
                 }
             }

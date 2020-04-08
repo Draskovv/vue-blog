@@ -36,7 +36,7 @@ export default {
         title: null,
         content: null,
         imgUrl: null,
-        published: new Date(),
+        published: new Date().toUTCString(),
         author: localStorage.getItem('username')
 
     };

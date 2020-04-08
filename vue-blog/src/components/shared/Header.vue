@@ -45,6 +45,7 @@ export default {
 <style scoped>
 
 nav{
+  background-color: rgb(69, 90, 100);
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -58,9 +59,12 @@ ul {
   background-color: white;
 }
 h1{
+  color: white;
   padding-left: 5em;
 }
 ul{
+  background-color: rgb(69, 90, 100);
+
   font-size: 24px;
   padding-right: 7em;
 }
@@ -68,7 +72,7 @@ ul{
 
 li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -76,7 +80,8 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-   background-color: lightgray;
+   background-color: lightskyblue;
+   color: black;
 }
 
 .logout {

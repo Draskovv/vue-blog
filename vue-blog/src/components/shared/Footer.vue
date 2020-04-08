@@ -1,6 +1,6 @@
 <template>
   <footer>
-      Blog footer?{{getYear}}
+      <div id="footer">Blog footer?{{getYear}}</div>
   </footer>
 </template>
 
@@ -25,5 +25,11 @@ footer {
   background-color:white;
   text-align: center;
   border-top: 1px solid black;
+}
+
+#footer{
+  height: 2em;
+  color: white;
+  background-color: rgb(69, 90, 100);
 }
 </style>
