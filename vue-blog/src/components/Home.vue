@@ -7,7 +7,7 @@
         Hello to the Page (not authenticated)
       </div>
       <div class="posts">
-        <router-link :to="{name:'details', params: {postId: p.postId, postTitle: p.title, postImgUrl: p.imgUrl, postContent: p.content, author: p.author, published: p.published}}" class="post" v-for="p in posts" :key="p.postId">
+        <router-link :to="{name:'details', params: {postId: p.postId, postTitle: p.title, postImgUrl: p.imgUrl, postContent: p.content, postAuthor: p.author, postPublished: p.published}}" class="post" v-for="p in posts" :key="p.postId">
           <img :src="p.imgUrl" />
           <p>{{p.title}}</p>
         </router-link>

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { postsRef } from '../firebase';
 
 export default {
     data: function() {
@@ -37,20 +38,33 @@ export default {
             try{
                 if (this.checkForm())
                 {
-                    const instance = axios.create({
-                    baseURL: 'https://vue-blog-8baa9.firebaseio.com/',
-                    headers: { 'Content-Type': 'application/json' }
-                    });
-            
-                    instance.interceptors.request.use(config => {
-                        config.url = `${config.url}`;
-            
-                        return config; 
-                    });
-                    instance.post("https://vue-blog-8baa9.firebaseio.com/posts.json", {title: this.title, content: this.content, imgUrl: this.imgUrl, published: this.published, author: this.author})
-
+                    postsRef.push({title: this.title, content: this.content, imgUrl: this.imgUrl, published: new Date(), author: this.author});
                     this.$router.push("/");
                 }
+            }
+            catch(err)
+            {
+                console.log(err);
+            }
+        },
+        async UpdatePost(){   
+            try{
+                if (this.checkForm())
+                {
+                    postsRef.child(this.postId).update({title: this.title, content: this.content, imgUrl: this.imgUrl})
+                    this.$router.push("/");
+                }
+            }
+            catch(err)
+            {
+                console.log(err);
+            }
+        },
+        async DeletePost(){   
+            try{
+               
+                postsRef.child(this.postId).remove();
+                this.$router.push("/");
             }
             catch(err)
             {
@@ -74,7 +88,8 @@ export default {
                 this.errors.push('Content required.');
             }
 
-        }
+        },
+        
         
         
     }

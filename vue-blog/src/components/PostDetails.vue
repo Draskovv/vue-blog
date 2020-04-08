@@ -2,16 +2,17 @@
   <div id="details">
       <div class="detailsPost" v-if="!editing">
         <div>
-          <img :src="this.postImgUrl">
-          <h2>{{this.postTitle}}</h2>
+          <img :src="this.imgUrl">
+          <h2>{{this.title}}</h2>
         </div>
         <div>
-          <p>{{this.postContent}}</p>
+          <p>{{this.content}}</p>
         </div>
         <p>posted by {{this.author}} &bull; {{this.published}}</p>
         
         <div v-if="authorOn">
           <button @click="editing = true">Edit</button>
+          <button @click="DeletePost(id)">Delete</button>
         </div>
       </div>
       <form @submit.prevent="UpdatePost($data)" v-if="editing">
@@ -19,15 +20,15 @@
         <h1>Update Post</h1>
         <p class="field1">
           <label for="title">Title:</label>
-          <input v-model="postTitle" type="text" name="title" id="title" placeholder="Title" />
+          <input v-model="title" type="text" name="title" id="title" placeholder="Title" />
         </p>
         <p class="field1">
           <label for="imgUrl">Image url:</label>
-          <input v-model="postImgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" />
+          <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" />
         </p>
         <p class="field1">
           <label for="content">Content:</label>
-          <textarea v-model="postContent" type="text" name="content" id="content" placeholder="Content"></textarea>
+          <textarea v-model="content" type="text" name="content" id="content" placeholder="Content"></textarea>
         </p>
         <p class="createPost">
           <button @click="editing = false">Back</button>
@@ -40,7 +41,7 @@
 </template>
 
 <script>
-//import postsMixin from '@/mixins/posts-mixin';
+import postsMixin from '@/mixins/posts-mixin';
 
 export default {
   props: {
@@ -49,17 +50,24 @@ export default {
     postTitle: String,
     postImgUrl: String,
     postContent: String,
-    author: String,
-    published: String
+    postAuthor: String,
+    postPublished: String
 
   },
   data: function() {
     return {
-      authorOn: localStorage.getItem('username') == this.author,
+      id: this.postId,
+      title: this.postTitle,
+      imgUrl: this.postImgUrl,
+      content: this.postContent,
+      author: this.postAuthor,
+      published: this.postPublished,
+      authorOn: localStorage.getItem('username') == this.postAuthor,
       editing: false
     }
   },
   name: 'PostDetails',
+  mixins: [postsMixin]
   
 }
 </script>
