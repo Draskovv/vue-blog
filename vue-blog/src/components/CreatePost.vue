@@ -12,7 +12,8 @@
           <!-- <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" /> -->
           <input type="file" @change="onPickFile" ref="fileInput" accept="image/*">
         </p>
-        <p v-if="imgUrl" class="fieldImg">
+        <p v-if="imgUrl" class="field1">
+          <label for="imgUrl">Preview:</label>
           <img :src="imgUrl" id="postImg">
         </p>
         <p class="field1">
@@ -75,7 +76,6 @@ h1 {
   text-align: center;
 }
 form {
-  padding-top: 5em;
   margin-top: 20px;
   margin: 20px auto;
   width: 40%;
@@ -147,12 +147,13 @@ input.error {
 }
 
 #postImg{
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 }
 
 .fieldImg{
-  text-align: center;
+  display: block;
+  align-self: left;
 }
 
 </style>

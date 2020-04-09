@@ -65,6 +65,7 @@ export default {
                
                 postsRef.child(this.postId).remove();
                 this.$router.push("/");
+                
             }
             catch(err)
             {
