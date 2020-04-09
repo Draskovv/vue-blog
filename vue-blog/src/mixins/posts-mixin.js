@@ -52,7 +52,7 @@ export default {
                 if (this.checkForm())
                 {
                     postsRef.child(this.postId).update({title: this.title, content: this.content, imgUrl: this.imgUrl})
-                    this.$router.push("/");
+                    this.editing = false
                 }
             }
             catch(err)

@@ -9,7 +9,11 @@
         </p>
         <p class="field1">
           <label for="imgUrl">Image url:</label>
-          <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" />
+          <!-- <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" /> -->
+          <input type="file" @change="onPickFile" ref="fileInput" accept="image/*">
+        </p>
+        <p v-if="imgUrl" class="fieldImg">
+          <img :src="imgUrl" id="postImg">
         </p>
         <p class="field1">
           <label for="content">Content:</label>
@@ -42,7 +46,24 @@ export default {
     };
     },
     name: 'CreatePost',
-    mixins: [postsMixin]
+    mixins: [postsMixin],
+    methods:{
+      onPickFile(event){
+        const files = event.target.files;
+        let fileName = files[0].name;
+
+        if(fileName.lastIndexOf('.') <= 0 ){
+          return alert("Please add a valid file!");
+        }
+
+        const fileReader = new FileReader();
+        fileReader.addEventListener('load' , ()=>{
+          this.imgUrl = fileReader.result
+        })
+        fileReader.readAsDataURL(files[0]);
+
+      }
+    }
  
     
   
@@ -123,6 +144,15 @@ input.error {
 
 .createPost{
   text-align: right;
+}
+
+#postImg{
+  width: 300px;
+  height: 300px;
+}
+
+.fieldImg{
+  text-align: center;
 }
 
 </style>

@@ -11,8 +11,8 @@
         <p>posted by {{this.author}} &bull; {{this.published}}</p>
         
         <div v-if="authorOn">
-          <button @click="editing = true">Edit</button>
-          <button @click="DeletePost(id)">Delete</button>
+          <button class="btn" @click="editing = true">Edit</button>
+          <button class="btn" @click="DeletePost(id)">Delete</button>
         </div>
       </div>
       <form @submit.prevent="UpdatePost($data)" v-if="editing">
@@ -22,17 +22,17 @@
           <label for="title">Title:</label>
           <input v-model="title" type="text" name="title" id="title" placeholder="Title" />
         </p>
-        <p class="field1">
+        <!-- <p class="field1">
           <label for="imgUrl">Image url:</label>
           <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" />
-        </p>
+        </p> -->
         <p class="field1">
           <label for="content">Content:</label>
           <textarea v-model="content" type="text" name="content" id="content" placeholder="Content"></textarea>
         </p>
         <p class="createPost">
-          <button @click="editing = false">Back</button>
-          <button>Update Post</button>
+          <button class="btn" @click="editing = false">Back</button>
+          <button class="btn">Update Post</button>
         </p>
       </fieldset>
     </form>
@@ -82,18 +82,25 @@ export default {
     max-width: 95%;
     padding: 1em;
     justify-items: center;
-    padding-top: 5em;
+    padding-top: 3em;
 }
 
 .detailsPost{
     width: 60%;
     border: 1px solid black;
-   border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     text-align: center;
+    padding-bottom: 1.5em;
 }
 img{
-  width: 70%;
-  height: 50%;
+  width: 50%;
+  height: 30%;
 }
+
+.btn{
+  margin-left: 1em;
+ width: 10em;
+}
+
 </style>
