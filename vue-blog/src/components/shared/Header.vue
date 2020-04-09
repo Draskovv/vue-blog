@@ -8,6 +8,9 @@
         <router-link to="/">Home</router-link>
       </li>
       <li v-if="isAuth">
+        <router-link to="/my-posts">My Posts</router-link>
+      </li>
+      <li v-if="isAuth">
         <router-link to="/create-post">Create Post</router-link>
       </li>
       <li v-if="!isAuth">

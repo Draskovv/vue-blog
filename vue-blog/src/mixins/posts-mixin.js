@@ -16,7 +16,6 @@ export default {
                 });
                 
                 instance.interceptors.request.use(config => {
-                    // header -> Authorization (Basic/Kinvey)
                     config.url = `${config.url}`;
                 
                     return config; 
@@ -29,6 +28,36 @@ export default {
                     postId,
                     ...allPostsRes[postId]
                   });
+                }
+            } catch(err) {
+                console.log(err);
+            }
+        } ,
+        async getMyPosts() {
+            try {
+                const instance = axios.create({
+                    baseURL: 'https://vue-blog-8baa9.firebaseio.com/',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                instance.interceptors.request.use(config => {
+                    config.url = `${config.url}`;
+                
+                    return config; 
+                });
+
+                const res = await instance.get(`posts.json`);
+                const allPostsRes = res.data;
+                for (const postId in allPostsRes) 
+                {
+                    if(allPostsRes[postId].author == localStorage.getItem('username')){
+
+                    this.posts.push({
+                    postId,
+                    ...allPostsRes[postId]
+                    });
+                }
+
                 }
             } catch(err) {
                 console.log(err);
