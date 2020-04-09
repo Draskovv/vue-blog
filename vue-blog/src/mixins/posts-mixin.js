@@ -4,7 +4,8 @@ import { postsRef } from '../firebase';
 export default {
     data: function() {
         return { 
-            posts: []
+            posts: [],
+            noPosts: false
          }
     },
     methods: {
@@ -50,14 +51,14 @@ export default {
                 const allPostsRes = res.data;
                 for (const postId in allPostsRes) 
                 {
-                    if(allPostsRes[postId].author == localStorage.getItem('username')){
-
-                    this.posts.push({
-                    postId,
-                    ...allPostsRes[postId]
-                    });
-                }
-
+                    if(allPostsRes[postId].author == localStorage.getItem('username'))
+                    {
+                        this.noPosts = true;
+                        this.posts.push({
+                            postId,
+                            ...allPostsRes[postId]
+                        });
+                    }
                 }
             } catch(err) {
                 console.log(err);
