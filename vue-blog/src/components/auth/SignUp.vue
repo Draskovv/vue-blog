@@ -135,7 +135,8 @@ select {
 }
 
 button {
-  background-color: white;
+  background-color: rgb(69, 90, 100);
+  color:white;
   border: 1px solid black;
   border-radius: 3px;
   padding: 0.8em 1.2em;

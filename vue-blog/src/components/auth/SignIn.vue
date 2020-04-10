@@ -103,7 +103,8 @@ input {
 }
 
 button {
-  background-color: white;
+  background-color: rgb(69, 90, 100);
+  color:white;
   border: none;
   border-radius: 3px;
   padding: 0.8em 1.2em;

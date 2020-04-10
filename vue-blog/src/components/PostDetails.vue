@@ -98,6 +98,8 @@ img{
 }
 
 .btn{
+  background-color: rgb(69, 90, 100);
+  color:white;
   margin-left: 1em;
  width: 10em;
 }
