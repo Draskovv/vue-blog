@@ -103,11 +103,14 @@ export default {
 
 <style scoped>
 
+#sign-up{
+  padding-top: 5em;
+}
+
 h1 {
   text-align: center;
 }
 form {
-  padding-top:5em ;
   margin-top: 20px;
   margin: 20px auto;
   width: 40%;

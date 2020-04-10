@@ -1,11 +1,5 @@
 <template>
   <div id="home">
-      <div v-if="isAuth">
-        Hello to the Page (authenticated)
-      </div>
-      <div v-else>
-        Hello to the Page (not authenticated)
-      </div>
       <div class="posts">
         <router-link :to="{name:'details', params: {postId: p.postId, postTitle: p.title, postImgUrl: p.imgUrl, postContent: p.content, postAuthor: p.author, postPublished: p.published}}" class="post" v-for="p in posts" :key="p.postId">
           <h2 class="postTitle">{{p.title}}</h2>
@@ -51,6 +45,7 @@ export default {
 }
 
 .post{
+  background-color: lightblue;
   text-align: center;
 }
 

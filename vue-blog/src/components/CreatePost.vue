@@ -82,17 +82,18 @@ export default {
     max-width: 95%;
     padding: 1em;
     justify-items: center;
+    
 }
 
 h1 {
   text-align: center;
 }
 form {
+  background-color: lightblue;
   width: 40%;
 }
 
 #create {
-  border-radius: 10px;
   padding: 20px;
 }
 
