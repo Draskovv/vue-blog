@@ -3,7 +3,12 @@
     <form @submit.prevent="onSignUp">
       <fieldset>
         <h1>Sign Up</h1>
-
+  <!-- <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+    </ul>
+  </p> -->
         <p class="field field-icon">
           <label for="username">
             <span>
@@ -16,6 +21,7 @@
             name="username"
             id="username"
             placeholder="Name"
+            required
           />
         </p>
         <p class="field field-icon">
@@ -24,7 +30,7 @@
               <i class="fas fa-envelope"></i>
             </span>
           </label>
-          <input v-model="email" type="text" name="email" id="email" placeholder="Email" />
+          <input v-model="email" type="text" name="email" id="email" placeholder="Email" required/>
         </p>
         <p class="field field-icon">
           <label for="password">
@@ -32,7 +38,7 @@
               <i class="fas fa-lock"></i>
             </span>
           </label>
-          <input v-model="password" type="password" name="password" id="password" placeholder="Password"/>
+          <input v-model="password" type="password" name="password" id="password" placeholder="Password" required/>
         </p>
 
         <p class="field field-icon">
@@ -41,7 +47,7 @@
               <i class="fas fa-lock"></i>
             </span>
           </label>
-          <input v-model="rePassword" type="password" name="re-password" id="re-password" placeholder="Repeat Password"/>
+          <input v-model="rePassword" type="password" name="re-password" id="re-password" placeholder="Repeat Password" required/>
         </p>
 
         <p class="createBtn">
@@ -64,6 +70,7 @@ export default {
   name: "SignUp",
   data: function() {
     return {
+      errors: [],
       username: "",
       email: "",
       password: "",
@@ -78,7 +85,8 @@ export default {
         returnSecureToken: true
       };
 
-      // Project Settings -> Web API key
+      if(this.userCheck())
+      {
       authAxios
         .post(
           "/accounts:signUp",
@@ -96,7 +104,33 @@ export default {
         .catch(err => {
           console.error(err);
         });
-    }
+      }
+    },
+    userCheck() {
+            if (this.username && this.email && this.password && this.rePassword && (this.password === this.rePassword)) {
+                return true;
+            }
+
+            this.errors = [];
+
+            if (!this.username) {
+              this.errors.push('Username required.');
+            }
+            if (!this.email) {
+              this.errors.push('Email required.');
+            }
+            if (!this.password) {
+                this.errors.push('Password required.');
+            }
+
+            if (!this.rePassword) {
+                this.errors.push('Passwords don\'t match.');
+            }
+
+
+        }
+
+
   }
 };
 </script>

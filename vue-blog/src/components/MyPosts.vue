@@ -9,7 +9,7 @@
       </div>
       <div class="noPostContainer" v-else>
           <img class="noPosts" src="https://www.dailydot.com/wp-content/uploads/e52/31/87610fa1a0ae891d.png" alt="">
-          <h2>Create post <router-link to="/create-post" class="linkCreate">here</router-link></h2>
+          <span id="noPosts">Create post <router-link to="/create-post" class="linkCreate">here</router-link></span>
       </div>
   </div>
 </template>
@@ -38,9 +38,19 @@ export default {
 
 <style>
 
+#noPosts{
+  width: 10em;
+  height: 1.5em;
+  text-align: center;
+  font-size: 40px;
+  background-color: lightblue;
+}
 
 .noPostContainer{
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 .linkCreate{
     color: blue;

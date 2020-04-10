@@ -5,12 +5,12 @@
         <h1>Create Post</h1>
         <p class="field1">
           <label for="title">Title:</label>
-          <input v-model="title" type="text" name="title" id="title" placeholder="Title" />
+          <input v-model="title" type="text" name="title" id="title" placeholder="Title" required/>
         </p>
         <p class="field1">
           <label for="imgUrl">Image url:</label>
           <!-- <input v-model="imgUrl" type="text" name="title" id="imgUrl" placeholder="imgUrl" /> -->
-          <input type="file" @change="onPickFile" ref="fileInput" accept="image/*">
+          <input type="file" @change="onPickFile" ref="fileInput" accept="image/*" required>
         </p>
         <p v-if="imgUrl" class="field1">
           <label for="imgUrl">Preview:</label>
@@ -18,7 +18,7 @@
         </p>
         <p class="field1">
           <label for="content">Content:</label>
-          <textarea v-model="content" type="text" name="content" id="content" placeholder="Content"></textarea>
+          <textarea v-model="content" type="text" name="content" id="content" placeholder="Content" required></textarea>
         </p>
         <p class="createPost">
           <button>Create Post</button>

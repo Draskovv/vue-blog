@@ -3,13 +3,19 @@
     <form @submit.prevent="onLogin">
       <fieldset>
         <h1>Login</h1>
+        <p v-if="errors.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+    </ul>
+  </p>
         <p class="field field-icon">
           <label for="email">
             <span>
               <i class="fas fa-envelope"></i>
             </span>
           </label>
-          <input v-model="email" type="text" name="email" id="email" placeholder="Email" />
+          <input v-model="email" type="text" name="email" id="email" placeholder="Email" required/>
         </p>
         <p class="field field-icon">
           <label for="password">
@@ -17,7 +23,7 @@
               <i class="fas fa-lock"></i>
             </span>
           </label>
-          <input v-model="password" type="password" name="password" id="password" placeholder="Password" />
+          <input v-model="password" type="password" name="password" id="password" placeholder="Password" required/>
         </p>
         <p class="loginBtn">
           <button>Login</button>
@@ -40,7 +46,8 @@ export default {
   data: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      errors:[]
     };
   },
   methods: {
@@ -51,7 +58,8 @@ export default {
         returnSecureToken: true
       };
 
-      // Project Settings -> Web API key
+      if(this.userCheck())
+      {
       authAxios
         .post(
           '/accounts:signInWithPassword',
@@ -69,7 +77,25 @@ export default {
         .catch(err => {
           console.error(err);
         });
-    }
+      }
+    },
+    userCheck() {
+            if (this.email && this.password) {
+                return true;
+            }
+
+            this.errors = [];
+
+            if (!this.email) {
+              this.errors.push('Email required.');
+            }
+            if (!this.password) {
+                this.errors.push('Password required.');
+            }
+
+            console.log(this.errors);
+
+        }
   }
 };
 </script>
