@@ -161,6 +161,11 @@ input.error {
     #createPost{
       display:flex;
     }
+
+    form {
+       background-color: transparent;
+ 
+    }
     
   }
 

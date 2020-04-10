@@ -44,6 +44,7 @@ export default {
     justify-items: center;
 }
 
+
 .post{
   background-color: lightblue;
   text-align: center;
@@ -54,6 +55,7 @@ img{
 }
 
 .postTitle{
+  padding-bottom:0.5em ;
   border-bottom: 1px solid black;
 }
 .postDate{
@@ -66,7 +68,7 @@ a{
 }
 
 a:hover{
-  background-color: rgba(100,100,100, 0.3);
+  background-color: rgb(41, 148, 248);
 }
 
 @media screen and (max-width: 500px) {

@@ -122,6 +122,10 @@ img{
 
 @media screen and (max-width: 500px) {
   
+  .detailsPost{
+    width: 100%;
+  }
+
   #postTitle{
     border-bottom: 1px solid black;
     padding-bottom: 0.3em;
@@ -146,8 +150,8 @@ img{
 }
  
  #details{
-   display: flex;
-   padding-left: 5em;
+   display: flex; 
+   padding-left: 1em;
  }
   
 }
