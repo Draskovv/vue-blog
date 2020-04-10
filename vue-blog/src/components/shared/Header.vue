@@ -97,6 +97,11 @@ img{
   height: 70px;
 }
 
+ .h1{
+      padding-left: 6em;
+      font-size: 30px;
+    }
+
 @media screen and (max-width: 1100px) {
    
    .h1{

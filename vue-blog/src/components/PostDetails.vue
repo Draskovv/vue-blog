@@ -2,15 +2,16 @@
   <div id="details">
       <div class="detailsPost" v-if="!editing">
         <div>
-          <img :src="this.imgUrl">
-          <h2>{{this.title}}</h2>
+          <h2 id="postTitle">{{this.title}}</h2>
+          <img id="postImg" :src="this.imgUrl">
         </div>
-        <div>
+        <div id="postContent">
           <p>{{this.content}}</p>
         </div>
-        <p>posted by {{this.author}} &bull; {{this.published}}</p>
+        <p class="publishedByOn">posted by {{this.author}}</p>
+        <p class="publishedByOn">On {{this.published}}</p>
         
-        <div v-if="authorOn">
+        <div class="buttonz" v-if="authorOn">
           <button class="btn" @click="editing = true">Edit</button>
           <button class="btn" @click="DeletePost(id)">Delete</button>
         </div>
@@ -87,9 +88,6 @@ export default {
 
 .detailsPost{
     width: 60%;
-    border: 1px solid black;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
     text-align: center;
     padding-bottom: 1.5em;
 }
@@ -102,5 +100,57 @@ img{
   margin-left: 1em;
  width: 10em;
 }
+
+#postTitle{
+    border-bottom: 1px solid black;
+    padding-bottom: 0.3em;
+  }
+
+  #postContent{
+    border-bottom: 1px solid black;
+  }
+
+  
+@media screen and (max-width: 1100px) {
+  
+  .btn{
+    margin-top: 1em;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  
+  #postTitle{
+    border-bottom: 1px solid black;
+    padding-bottom: 0.3em;
+  }
+  
+  #postImg{
+    width: 200px;
+    height: 200px;
+  }
+
+  #postContent{
+    border-bottom: 1px solid black;
+  }
+  .publishedByOn{
+    
+    font-size: 12px;
+  }
+
+.btn{
+  margin-top: 1em;
+  width: 10em;
+}
+ 
+ #details{
+   display: flex;
+   padding-left: 5em;
+ }
+  
+}
+
+
 
 </style>

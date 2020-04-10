@@ -96,6 +96,7 @@ export default {
             try{
                
                 postsRef.child(this.postId).remove();
+                this.getAllPosts();
                 this.$router.push("/");
                 
             }
