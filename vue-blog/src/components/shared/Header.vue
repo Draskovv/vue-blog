@@ -83,9 +83,13 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+li a:hover{
    background-color: lightskyblue;
    color: black;
+}
+
+li > a.router-link-exact-active {
+  background-color: lightskyblue;
 }
 
 .logout {
