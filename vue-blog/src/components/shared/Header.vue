@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div>
-      <h1>VueJS Blog</h1>
+      <router-link class="h1" to="/">VueJS Blog</router-link>
     </div>
     <ul>
       <li>
@@ -61,7 +61,7 @@ ul {
   overflow: hidden;
   background-color: white;
 }
-h1{
+.h1{
   color: white;
   padding-left: 5em;
 }
@@ -96,4 +96,37 @@ img{
   width: 70px;
   height: 70px;
 }
+
+@media screen and (max-width: 1100px) {
+   
+   .h1{
+     padding-left: 3em;
+     font-size: 26px;
+   }
+   
+   ul{
+     padding-right: 3em;
+   }
+
+   a{
+     font-size: 18px;
+   }
+    
+  }
+  @media screen and (max-width: 600px) {
+    
+    .h1{
+      padding-left: 0;
+      font-size: 20px;
+    }
+   
+   ul{
+     padding-right: 0;
+   }
+
+   a{
+     font-size: 14px;
+   }
+  
+  }
 </style>

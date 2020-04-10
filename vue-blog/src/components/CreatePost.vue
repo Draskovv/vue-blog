@@ -1,7 +1,7 @@
 <template>
   <div id="createPost">
-    <form @submit.prevent="CreatePost($data)">
-      <fieldset id="createPost">
+    <form id="createForm" @submit.prevent="CreatePost($data)">
+      <fieldset id="create">
         <h1>Create Post</h1>
         <p class="field1">
           <label for="title">Title:</label>
@@ -25,6 +25,7 @@
         </p>
       </fieldset>
     </form>
+        
   </div>
 </template>
 
@@ -72,16 +73,25 @@ export default {
 </script>
 
 <style>
+#createPost{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(600px , 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    margin: 0 auto;
+    max-width: 95%;
+    padding: 1em;
+    justify-items: center;
+}
+
 h1 {
   text-align: center;
 }
 form {
-  margin-top: 20px;
-  margin: 20px auto;
   width: 40%;
 }
 
-#createPost {
+#create {
   border-radius: 10px;
   padding: 20px;
 }
@@ -96,8 +106,8 @@ input {
 }
 
 textarea{
-    flex: 0 1 70%;
-    height: 25em;
+  flex: 0 1 70%;
+  height: 10em;
   border: 1px solid;
   padding: 5px;
   border-left: 3px solid #42a948;
@@ -113,15 +123,6 @@ button {
   width: 30%;
   cursor: pointer;
   border: 1px solid black
-}
-
-.container {
-  font-family: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 form .field1 {
@@ -146,14 +147,17 @@ input.error {
   text-align: right;
 }
 
-#postImg{
-  width: 500px;
-  height: 500px;
-}
+@media screen and (max-width: 1100px) {
+    form .field1 {
+      flex-direction: column;
+    }
+  }
 
-.fieldImg{
-  display: block;
-  align-self: left;
-}
+  @media screen and (max-width: 600px) {
+    #createPost{
+      display:flex;
+    }
+    
+  }
 
 </style>

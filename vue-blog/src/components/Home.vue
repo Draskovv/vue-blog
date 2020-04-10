@@ -73,4 +73,11 @@ a{
 a:hover{
   background-color: rgba(100,100,100, 0.3);
 }
+
+@media screen and (max-width: 500px) {
+  .posts{
+    grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+
+  }
+}
 </style>

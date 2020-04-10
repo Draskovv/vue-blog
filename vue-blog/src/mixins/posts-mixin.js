@@ -69,7 +69,9 @@ export default {
                 if (this.checkForm())
                 {
                     postsRef.push({title: this.title, content: this.content, imgUrl: this.imgUrl, published: this.published, author: this.author});
+                    this.getMyPosts();
                     this.$router.push("/my-posts");
+                    
                 }
             }
             catch(err)

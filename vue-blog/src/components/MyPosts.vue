@@ -44,9 +44,7 @@ export default {
 </script>
 
 <style>
-.myPostImg{
-    height: 260px;
-}
+
 
 .noPostContainer{
     text-align: center;
