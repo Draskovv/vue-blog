@@ -148,6 +148,9 @@ input.error {
 }
 
 @media screen and (max-width: 1100px) {
+    #createPost{
+      grid-template-columns: repeat(auto-fit , minmax(600px , 1fr));
+    }
     form .field1 {
       flex-direction: column;
     }

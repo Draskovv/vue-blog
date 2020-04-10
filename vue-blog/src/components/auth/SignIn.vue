@@ -155,5 +155,17 @@ input.error {
 .text-center{
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  form{
+    margin: 0;
+    padding-left: 2em
+  }
+  .loginBtn{
+    width: 16em;
+  }
+
+ 
+}
 </style>
 
